@@ -4,7 +4,7 @@ var nextScenePath
 
 func fade_to(path):
 	nextScenePath = path
-	get_node("Fade Logo").play("Fade Logo")
+	get_node("Anim").play("Fade")
 
 func change_scene():
 	if nextScenePath != null:
