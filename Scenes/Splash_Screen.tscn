@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://Scripts/Splash Screen.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Logo/Logo Blue.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Splash_Screen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Logo/Logo_Blue.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1.2, 1.2 ), Vector2( 1.1, 1.1 ), Vector2( 1.2, 1.2 ), Vector2( 1.1, 1.1 ) ]
 }
 
-[node name="Splash Screen" type="Node"]
+[node name="Splash_Screen" type="Node"]
 
 script/script = ExtResource( 1 )
 

@@ -1,21 +1,23 @@
-[gd_scene load_steps=22 format=1]
+[gd_scene load_steps=28 format=1]
 
-[ext_resource path="res://Scenes/Bathroom.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Rotinas/Banheiro/parede_com_toalha@72x-8.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Bathroom.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Rotinas/Banheiro/parede_com_toalha72x8.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Rotinas/Banheiro/menino_idle.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Rotinas/Banheiro/braco_escovando_dente.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Rotinas/Banheiro/bracoescovandodente.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Rotinas/Banheiro/espuma_1.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Rotinas/Banheiro/pia_1@72x-8.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Rotinas/Banheiro/lampada@72x-8.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Rotinas/Banheiro/brilho@72x-8.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Rotinas/Banheiro/torneira@72x-8.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Rotinas/Banheiro/escova_rosa@72x-8.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Rotinas/Banheiro/copo@72x-8.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Rotinas/Banheiro/escova_azul@72x-8.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Rotinas/Banheiro/pasta_tampada.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sounds/music_1.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Rotinas/Banheiro/bracolavandoescova.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Rotinas/Banheiro/pia_172x8.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Rotinas/Banheiro/lampada72x8.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Rotinas/Banheiro/brilho72x8.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Rotinas/Banheiro/torneira72x8.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Rotinas/Banheiro/agua.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Rotinas/Banheiro/escova_rosa72x8.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Rotinas/Banheiro/escova_azul72x8.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Rotinas/Banheiro/copo72x8.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Rotinas/Banheiro/pasta_tampada.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sounds/music_1.ogg" type="AudioStream" id=16]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 
 resource/name = "Blink_Char"
 length = 2.0
@@ -32,7 +34,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 1.05, 1.05 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 
 resource/name = "Brushing_Tooth"
 length = 2.0
@@ -59,15 +61,14 @@ tracks/1/keys = {
 "values": [ Vector2( 1.2, 1.2 ), Vector2( 1.3, 1.3 ), Vector2( 1.2, 1.2 ), Vector2( 1.3, 1.3 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
-resource/name = "Blink"
 length = 2.0
 loop = true
 step = 0.1
@@ -82,9 +83,31 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.08, 1.08 ) ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=5]
 
-resource/name = "Red_brush"
+resource/name = "Blink_Faucet"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5, 1, 1.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.07, 1.07 ), Vector2( 1, 1 ), Vector2( 1.07, 1.07 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[sub_resource type="Animation" id=7]
+
 length = 2.0
 loop = true
 step = 0.1
@@ -99,15 +122,36 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.07, 1.07 ), Vector2( 1, 1 ), Vector2( 1.07, 1.07 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="Animation" id=8]
+
+resource/name = "Blink_Glass"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5, 1, 1.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.08, 1.08 ), Vector2( 1, 1 ), Vector2( 1.08, 1.08 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="CapsuleShape2D" id=10]
 
 custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=11]
 
-resource/name = "Blink"
 length = 2.0
 loop = true
 step = 0.1
@@ -150,8 +194,8 @@ texture = ExtResource( 3 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Blink_Char = SubResource( 5 )
-anims/Brushing_Tooth = SubResource( 7 )
+anims/Blink_Char = SubResource( 1 )
+anims/Brushing_Tooth = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -159,12 +203,13 @@ autoplay = ""
 
 [node name="Character_button" type="TouchScreenButton" parent="CanvasLayer/Character"]
 
+visibility/visible = false
 transform/pos = Vector2( 20.519, 5.04004 )
 transform/scale = Vector2( -16.3245, -17.6848 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 shape_centered = true
 shape_visible = true
 passby_press = false
@@ -185,29 +230,35 @@ transform/pos = Vector2( -11.4031, -17.9192 )
 transform/scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 5 )
 
+[node name="Arm_Washing" type="Sprite" parent="CanvasLayer/Character"]
+
+visibility/visible = false
+transform/pos = Vector2( 52.5448, 315.268 )
+z/z = 1
+texture = ExtResource( 6 )
+
 [node name="Sink" type="Sprite" parent="CanvasLayer"]
 
 transform/pos = Vector2( 526.302, 1637.05 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Light" type="Sprite" parent="CanvasLayer"]
 
-editor/display_folded = true
 transform/pos = Vector2( 499.872, 221.365 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Glow" type="Sprite" parent="CanvasLayer/Light"]
 
 transform/pos = Vector2( 3.42468, 113.018 )
 transform/scale = Vector2( 1.03238, 1.03238 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Anim_Glow" type="AnimationPlayer" parent="CanvasLayer/Light/Glow"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Blink = SubResource( 2 )
+anims/Blink = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -215,12 +266,46 @@ autoplay = "Blink"
 
 [node name="Faucet" type="Sprite" parent="CanvasLayer"]
 
-transform/pos = Vector2( 318.312, 1589.1 )
-texture = ExtResource( 9 )
+transform/pos = Vector2( 339.948, 1589.1 )
+z/z = 2
+texture = ExtResource( 10 )
 
-[node name="Red Brush" type="TextureButton" parent="CanvasLayer"]
+[node name="Anim_Faucet" type="AnimationPlayer" parent="CanvasLayer/Faucet"]
 
-editor/display_folded = true
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Blink_Faucet = SubResource( 5 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Faucet_button" type="TouchScreenButton" parent="CanvasLayer/Faucet"]
+
+visibility/visible = false
+transform/pos = Vector2( -3.22327, 0.135551 )
+transform/scale = Vector2( 10.1951, -6.29815 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 6 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Water" type="Sprite" parent="CanvasLayer/Faucet"]
+
+visibility/visible = false
+transform/pos = Vector2( 72.1999, 31.5874 )
+z/z = 1
+z/relative = false
+texture = ExtResource( 11 )
+
+[node name="Red_Brush" type="TextureButton" parent="CanvasLayer"]
+
 rect/scale = Vector2( 1.01681, 1.01681 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -233,43 +318,69 @@ margin/bottom = 1590.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
+textures/normal = ExtResource( 12 )
 params/resize_mode = 0
 params/scale = Vector2( 1.04873, 1.04873 )
 params/stretch_mode = 0
 
-[node name="Anim_Brush" type="AnimationPlayer" parent="CanvasLayer/Red Brush"]
+[node name="Anim_Brush" type="AnimationPlayer" parent="CanvasLayer/Red_Brush"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Red_brush = SubResource( 1 )
+anims/Red_brush = SubResource( 7 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "Red_brush"
 
+[node name="Blue_Brush" type="Sprite" parent="CanvasLayer"]
+
+transform/pos = Vector2( 137.672, 1441.37 )
+z/relative = false
+texture = ExtResource( 13 )
+
 [node name="Glass" type="Sprite" parent="CanvasLayer"]
 
-editor/display_folded = true
 transform/pos = Vector2( 117.223, 1530.88 )
 z/z = 1
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
 
-[node name="Blue Brush" type="Sprite" parent="CanvasLayer/Glass"]
+[node name="Anim_Glass" type="AnimationPlayer" parent="CanvasLayer/Glass"]
 
-transform/pos = Vector2( 20.4487, -88.6108 )
-z/relative = false
-texture = ExtResource( 12 )
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Blink_Glass = SubResource( 8 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
-[node name="Tooth Paste" type="Sprite" parent="CanvasLayer"]
+[node name="Glass_button" type="TouchScreenButton" parent="CanvasLayer/Glass"]
 
+visibility/visible = false
+transform/pos = Vector2( -1.629, -4.88708 )
+transform/scale = Vector2( 6, 10 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 9 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Tooth_Paste" type="Sprite" parent="CanvasLayer"]
+
+editor/display_folded = true
 transform/pos = Vector2( 903.913, 1631.48 )
 transform/rot = -5.0
 transform/scale = Vector2( 0.819144, 0.819144 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/Tooth Paste"]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/Tooth_Paste"]
 
 visibility/visible = false
 transform/pos = Vector2( 1.64976, -4.5895 )
@@ -278,39 +389,61 @@ transform/scale = Vector2( 4.46228, 4.4348 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 3 )
+shape = SubResource( 10 )
 shape_centered = true
 shape_visible = true
 passby_press = false
 action = ""
 visibility_mode = 0
 
-[node name="Anim_Paste" type="AnimationPlayer" parent="CanvasLayer/Tooth Paste"]
+[node name="Anim_Paste" type="AnimationPlayer" parent="CanvasLayer/Tooth_Paste"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Blink = SubResource( 4 )
+anims/Blink = SubResource( 11 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
+[node name="Timer_to_faucet" type="Timer" parent="CanvasLayer"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
 [node name="Background Music" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 14 )
+stream/stream = ExtResource( 16 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
-stream/autoplay = false
+stream/autoplay = true
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
+[node name="Timer_to_wash" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
+
 [connection signal="pressed" from="CanvasLayer/Character/Character_button" to="." method="_on_Character_button_pressed"]
 
-[connection signal="pressed" from="CanvasLayer/Red Brush" to="." method="_on_Red_Brush_pressed"]
+[connection signal="pressed" from="CanvasLayer/Faucet/Faucet_button" to="." method="_on_Faucet_button_pressed"]
 
-[connection signal="pressed" from="CanvasLayer/Tooth Paste/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Red_Brush" to="." method="_on_Red_Brush_pressed"]
+
+[connection signal="pressed" from="CanvasLayer/Glass/Glass_button" to="." method="_on_Glass_button_pressed"]
+
+[connection signal="pressed" from="CanvasLayer/Tooth_Paste/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+
+[connection signal="timeout" from="CanvasLayer/Timer_to_faucet" to="." method="_on_Timer_to_faucet_timeout"]
+
+[connection signal="timeout" from="Timer_to_wash" to="." method="_on_Timer_to_wash_timeout"]
 
 
