@@ -14,7 +14,18 @@ func _on_Red_Brush_pressed():
 	get_node("CanvasLayer/Tooth Paste/TouchScreenButton").show()
 	get_node("CanvasLayer/Tooth Paste/Anim_Paste").play("Blink")
 	
-
 func _on_TouchScreenButton_pressed():
 	character.set_texture(menino_pasta)
 	paste.hide()
+	get_node("CanvasLayer/Character/Anim_Char").play("Blink_Char")
+
+func _on_Character_button_pressed():
+	paste.show()
+	get_node("CanvasLayer/Tooth Paste/Anim_Paste").stop_all()
+	get_node("CanvasLayer/Tooth Paste/TouchScreenButton").hide()
+	character.set_texture(menino_escovando_dente)
+	get_node("CanvasLayer/Character/Anim_Char").stop_all()
+	get_node("CanvasLayer/Character/Arm").show()
+	get_node("CanvasLayer/Character/Anim_Char").play("Brushing_Tooth")
+	get_node("CanvasLayer/Character/Bubble").show()
+	
