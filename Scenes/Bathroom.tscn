@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=1]
+[gd_scene load_steps=31 format=1]
 
 [ext_resource path="res://Scripts/Bathroom.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Rotinas/Banheiro/parede_com_toalha72x8.png" type="Texture" id=2]
@@ -11,11 +11,14 @@
 [ext_resource path="res://Assets/Rotinas/Banheiro/brilho72x8.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Rotinas/Banheiro/torneira72x8.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Rotinas/Banheiro/agua.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Rotinas/Banheiro/escova_rosa72x8.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Rotinas/Banheiro/escova_azul72x8.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Rotinas/Banheiro/copo72x8.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Rotinas/Banheiro/pasta_tampada.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Sounds/music_1.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Sounds/faucetWater.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Rotinas/Banheiro/escova_rosa72x8.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sounds/tooth_brush.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Rotinas/Banheiro/escova_azul72x8.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Rotinas/Banheiro/copo72x8.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Rotinas/Banheiro/pasta_tampada.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sounds/music_1.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Sounds/selection-click.ogg" type="AudioStream" id=19]
 
 [sub_resource type="Animation" id=1]
 
@@ -32,6 +35,16 @@ tracks/0/keys = {
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 1.05, 1.05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5, 1, 1.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -80,7 +93,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 1 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.08, 1.08 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -98,6 +111,16 @@ tracks/0/keys = {
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.07, 1.07 ), Vector2( 1, 1 ), Vector2( 1.07, 1.07 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5, 1, 1.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ) ]
 }
 
 [sub_resource type="CapsuleShape2D" id=6]
@@ -119,7 +142,17 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.5, 1, 1.5 ),
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.07, 1.07 ), Vector2( 1, 1 ), Vector2( 1.07, 1.07 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:params/modulate")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5, 1, 1.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -137,6 +170,16 @@ tracks/0/keys = {
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.08, 1.08 ), Vector2( 1, 1 ), Vector2( 1.08, 1.08 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5, 1, 1.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=9]
@@ -165,6 +208,16 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0.9, 0.9 ), Vector2( 0.8, 0.8 ), Vector2( 0.9, 0.9 ), Vector2( 0.8, 0.8 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5, 1, 1.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ) ]
+}
 
 [node name="Bathroom" type="Node"]
 
@@ -186,6 +239,7 @@ texture = ExtResource( 2 )
 
 [node name="Character" type="Sprite" parent="CanvasLayer"]
 
+editor/display_folded = true
 transform/pos = Vector2( 506.286, 1258.73 )
 texture = ExtResource( 3 )
 
@@ -244,13 +298,14 @@ texture = ExtResource( 7 )
 
 [node name="Light" type="Sprite" parent="CanvasLayer"]
 
+editor/display_folded = true
 transform/pos = Vector2( 499.872, 221.365 )
 texture = ExtResource( 8 )
 
 [node name="Glow" type="Sprite" parent="CanvasLayer/Light"]
 
 transform/pos = Vector2( 3.42468, 113.018 )
-transform/scale = Vector2( 1.03238, 1.03238 )
+transform/scale = Vector2( 1.01603, 1.01603 )
 texture = ExtResource( 9 )
 
 [node name="Anim_Glow" type="AnimationPlayer" parent="CanvasLayer/Light/Glow"]
@@ -266,6 +321,7 @@ autoplay = "Blink"
 
 [node name="Faucet" type="Sprite" parent="CanvasLayer"]
 
+editor/display_folded = true
 transform/pos = Vector2( 339.948, 1589.1 )
 z/z = 2
 texture = ExtResource( 10 )
@@ -304,9 +360,20 @@ z/z = 1
 z/relative = false
 texture = ExtResource( 11 )
 
+[node name="Water_Sound" type="StreamPlayer" parent="CanvasLayer/Faucet"]
+
+stream/stream = ExtResource( 12 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
 [node name="Red_Brush" type="TextureButton" parent="CanvasLayer"]
 
-rect/scale = Vector2( 1.01681, 1.01681 )
+rect/scale = Vector2( 1.04, 1.04 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -318,10 +385,11 @@ margin/bottom = 1590.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 12 )
+textures/normal = ExtResource( 13 )
 params/resize_mode = 0
-params/scale = Vector2( 1.04873, 1.04873 )
+params/scale = Vector2( 1.06, 1.06 )
 params/stretch_mode = 0
+params/modulate = Color( 0.86509, 0.86509, 0.86509, 1 )
 
 [node name="Anim_Brush" type="AnimationPlayer" parent="CanvasLayer/Red_Brush"]
 
@@ -334,17 +402,28 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = "Red_brush"
 
+[node name="Brush_Sound" type="StreamPlayer" parent="CanvasLayer/Red_Brush"]
+
+stream/stream = ExtResource( 14 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 10.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
 [node name="Blue_Brush" type="Sprite" parent="CanvasLayer"]
 
 transform/pos = Vector2( 137.672, 1441.37 )
 z/relative = false
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
 [node name="Glass" type="Sprite" parent="CanvasLayer"]
 
 transform/pos = Vector2( 117.223, 1530.88 )
 z/z = 1
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 
 [node name="Anim_Glass" type="AnimationPlayer" parent="CanvasLayer/Glass"]
 
@@ -374,11 +453,10 @@ visibility_mode = 0
 
 [node name="Tooth_Paste" type="Sprite" parent="CanvasLayer"]
 
-editor/display_folded = true
 transform/pos = Vector2( 903.913, 1631.48 )
 transform/rot = -5.0
-transform/scale = Vector2( 0.819144, 0.819144 )
-texture = ExtResource( 15 )
+transform/scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 17 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/Tooth_Paste"]
 
@@ -416,10 +494,10 @@ autostart = false
 
 [node name="Background Music" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 16 )
+stream/stream = ExtResource( 18 )
 stream/play = false
 stream/loop = true
-stream/volume_db = 0.0
+stream/volume_db = -8.0
 stream/autoplay = true
 stream/paused = false
 stream/loop_restart_time = 0.0
@@ -431,6 +509,17 @@ process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = false
+
+[node name="Selection_Sound" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 19 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 2.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 [connection signal="pressed" from="CanvasLayer/Character/Character_button" to="." method="_on_Character_button_pressed"]
 
