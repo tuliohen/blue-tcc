@@ -45,7 +45,7 @@ tracks/1/keys = {
 "times": FloatArray( 0, 0.5, 1, 1.5 ),
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ), Color( 0.662745, 0.662745, 0.662745, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.824219, 0.801682, 0.801682, 1 ), Color( 1, 1, 1, 1 ), Color( 0.824219, 0.801682, 0.801682, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -240,7 +240,6 @@ texture = ExtResource( 2 )
 
 [node name="Character" type="Sprite" parent="CanvasLayer"]
 
-editor/display_folded = true
 transform/pos = Vector2( 506.286, 1258.73 )
 texture = ExtResource( 3 )
 
