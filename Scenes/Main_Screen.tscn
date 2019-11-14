@@ -259,7 +259,6 @@ texture = ExtResource( 9 )
 
 [node name="Register" type="Label" parent="Bar/Top_Menu"]
 
-editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -290,9 +289,8 @@ passby_press = false
 action = ""
 visibility_mode = 0
 
-[node name="ColorFrame" type="ColorFrame" parent="Bar/Top_Menu"]
+[node name="Password_Box" type="ColorFrame" parent="Bar/Top_Menu"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -303,7 +301,7 @@ margin/right = 385.0
 margin/bottom = 387.0
 color = Color( 1, 1, 1, 1 )
 
-[node name="LineEdit" type="LineEdit" parent="Bar/Top_Menu/ColorFrame"]
+[node name="current_password" type="LineEdit" parent="Bar/Top_Menu/Password_Box"]
 
 material/material = SubResource( 6 )
 focus/ignore_mouse = false
@@ -328,6 +326,115 @@ secret = true
 focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
+
+[node name="Password_Box_Register" type="ColorFrame" parent="Bar/Top_Menu"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -349.0
+margin/top = 233.0
+margin/right = 385.0
+margin/bottom = 387.0
+color = Color( 1, 1, 1, 1 )
+
+[node name="new_password" type="LineEdit" parent="Bar/Top_Menu/Password_Box_Register"]
+
+material/material = SubResource( 6 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 23.0
+margin/top = 28.0
+margin/right = 720.0
+margin/bottom = 143.0
+custom_styles/read_only = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/selection_color = Color( 0.664063, 0.632935, 0.632935, 1 )
+custom_colors/cursor_color = Color( 0.566406, 0.542068, 0.542068, 1 )
+custom_colors/font_color_selected = Color( 0.356863, 0.356863, 0.356863, 1 )
+custom_colors/font_color = Color( 0.574219, 0.513657, 0.513657, 1 )
+placeholder/text = "Senha"
+placeholder/alpha = 1.0
+align = 3
+secret = true
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="Confirm_Password_Box" type="ColorFrame" parent="Bar/Top_Menu/Password_Box_Register"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 200.0
+margin/right = 734.0
+margin/bottom = 354.0
+color = Color( 1, 1, 1, 1 )
+
+[node name="confirm_password" type="LineEdit" parent="Bar/Top_Menu/Password_Box_Register/Confirm_Password_Box"]
+
+material/material = SubResource( 6 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 23.0
+margin/top = 28.0
+margin/right = 720.0
+margin/bottom = 143.0
+custom_styles/read_only = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/selection_color = Color( 0.664063, 0.632935, 0.632935, 1 )
+custom_colors/cursor_color = Color( 0.566406, 0.542068, 0.542068, 1 )
+custom_colors/font_color_selected = Color( 0.356863, 0.356863, 0.356863, 1 )
+custom_colors/font_color = Color( 0.574219, 0.513657, 0.513657, 1 )
+placeholder/text = "Confirma senha"
+placeholder/alpha = 1.0
+align = 3
+secret = true
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="Ok_btn" type="Label" parent="Bar/Top_Menu/Password_Box_Register"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 330.0
+margin/top = 391.0
+margin/right = 403.0
+margin/bottom = 472.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.992188, 0.992188, 0.992188, 1 )
+custom_colors/font_color_shadow = Color( 0.258824, 0.258824, 0.258824, 1 )
+text = "OK"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ok_button" type="TouchScreenButton" parent="Bar/Top_Menu/Password_Box_Register/Ok_btn"]
+
+transform/pos = Vector2( 31.3058, 38.3245 )
+transform/scale = Vector2( 6.84321, -4.83026 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 9 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
 
 [node name="Cancel_button" type="Label" parent="Bar/Top_Menu"]
 
@@ -417,6 +524,8 @@ autoplay = ""
 [connection signal="pressed" from="Bar/Top_Menu/Enter_Button" to="." method="_on_Enter_Button_pressed"]
 
 [connection signal="pressed" from="Bar/Top_Menu/Register/Register_button" to="." method="_on_Register_button_pressed"]
+
+[connection signal="pressed" from="Bar/Top_Menu/Password_Box_Register/Ok_btn/ok_button" to="." method="_on_ok_button_pressed"]
 
 [connection signal="pressed" from="Bar/Top_Menu/Cancel_button/Cancel_btn" to="." method="_on_Cancel_btn_pressed"]
 
