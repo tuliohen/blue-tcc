@@ -22,3 +22,9 @@ func _on_Register_button_pressed():
 func _on_Enter_Button_pressed():
 	password = get_node("Bar/Top_Menu/ColorFrame/LineEdit").get_text()
 	print(password)
+
+
+func _on_Cancel_btn_pressed():
+	get_node("Anim_Bar").play("Up_Bar")
+	print("cancel button pressed")
+	pass # replace with function body

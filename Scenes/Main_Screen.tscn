@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://Scenes/Main_Screen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tela_Inicial/expressions_btn_bg.png" type="Texture" id=2]
@@ -60,6 +60,18 @@ font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 4 )
 
+[sub_resource type="DynamicFont" id=10]
+
+font/size = 120
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 4 )
+
+[sub_resource type="CircleShape2D" id=11]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
@@ -100,6 +112,43 @@ tracks/2/keys = {
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=12]
+
+resource/name = "Up_Bar"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bar/Top_Menu:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 500, 920 ), Vector2( 500, -840 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bar/Top_Menu/App_name:visibility/visible")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.5 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bar/Top_Menu/Menu_Button:visibility/visible")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.5 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="Main_Screen" type="Node"]
@@ -158,7 +207,7 @@ scale = Vector2( 1, 1 )
 
 [node name="Top_Menu" type="Sprite" parent="Bar"]
 
-transform/pos = Vector2( 499.185, -840 )
+transform/pos = Vector2( 500, -840 )
 z/z = 1
 texture = ExtResource( 5 )
 
@@ -205,19 +254,20 @@ params/stretch_mode = 0
 
 [node name="Parents_message" type="Sprite" parent="Bar/Top_Menu"]
 
-transform/pos = Vector2( 20.5487, -352.753 )
+transform/pos = Vector2( 20.5487, -282.753 )
 texture = ExtResource( 9 )
 
 [node name="Register" type="Label" parent="Bar/Top_Menu"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -169.0
 margin/top = 664.0
-margin/right = 193.0
-margin/bottom = 759.0
+margin/right = 185.0
+margin/bottom = 745.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.992188, 0.992188, 0.992188, 1 )
 custom_colors/font_color_shadow = Color( 0.258824, 0.258824, 0.258824, 1 )
@@ -242,6 +292,7 @@ visibility_mode = 0
 
 [node name="ColorFrame" type="ColorFrame" parent="Bar/Top_Menu"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -277,6 +328,37 @@ secret = true
 focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
+
+[node name="Cancel_button" type="Label" parent="Bar/Top_Menu"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 402.0
+margin/top = -869.0
+margin/right = 458.0
+margin/bottom = -748.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "X"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Cancel_btn" type="TouchScreenButton" parent="Bar/Top_Menu/Cancel_button"]
+
+transform/pos = Vector2( 20.717, 50.7169 )
+transform/scale = Vector2( 5.61379, 5.95774 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 11 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
 
 [node name="Routines_Button" type="Node2D" parent="."]
 
@@ -324,6 +406,7 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/Drop_Bar = SubResource( 4 )
+anims/Up_Bar = SubResource( 12 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -334,6 +417,8 @@ autoplay = ""
 [connection signal="pressed" from="Bar/Top_Menu/Enter_Button" to="." method="_on_Enter_Button_pressed"]
 
 [connection signal="pressed" from="Bar/Top_Menu/Register/Register_button" to="." method="_on_Register_button_pressed"]
+
+[connection signal="pressed" from="Bar/Top_Menu/Cancel_button/Cancel_btn" to="." method="_on_Cancel_btn_pressed"]
 
 [connection signal="pressed" from="Routines_Button/Routines_btn" to="." method="_on_Routines_btn_pressed"]
 
