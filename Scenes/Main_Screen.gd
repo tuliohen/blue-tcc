@@ -1,5 +1,6 @@
 extends Node
 
+var password = ""
 
 func _ready():
 	pass
@@ -19,5 +20,5 @@ func _on_Register_button_pressed():
 
 
 func _on_Enter_Button_pressed():
-	print("enter pressed")
-	pass # replace with function body
+	password = get_node("Bar/Top_Menu/ColorFrame/LineEdit").get_text()
+	print(password)
