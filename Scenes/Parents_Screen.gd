@@ -16,6 +16,9 @@ onready var label_escola = get_node("Micro_Routines/Micros_BG/Escola/Selection_E
 onready var label_banho = get_node("Micro_Routines/Micros_BG/Banho/Selection_Banho/Label_Banho")
 onready var label_roupa = get_node("Micro_Routines/Micros_BG/Roupa/Selection_Roupa/Label_Roupa")
 
+var save_file = File.new()
+var save_path = "res://save_routines.save"
+var save_data = {"lista_de_clicks":[]}
 
 var lista_de_clicks = []
 const COMER_PRESSED = false
@@ -38,15 +41,34 @@ func _ready():
 		label_crie_rotina.hide()
 	else:
 		label_crie_rotina.show()
+	
+	if not save_file.file_exists(save_path):
+		create_save()
+	else:
+		load_list_clicks()
 
-func _on_Create_routine_btn_pressed():
-	get_node("Micro_Routines/Micros_BG").show()
+func create_save():
+	save_file.open(save_path, File.WRITE)
+	save_file.store_var(save_data)
+	save_file.close()
+
+func save_list_clicks():
+	save_data["lista_de_clicks"] = lista_de_clicks
+	save_file.open(save_path, File.WRITE)
+	save_file.store_var(save_data)
+	save_file.close()
+
+func load_list_clicks():
+	save_file.open(save_path, File.READ)
+	save_data = save_file.get_var()
+	save_file.close()
+	lista_de_clicks = save_data["lista_de_clicks"]
+	print("loaded lista: ", lista_de_clicks)
 	
 func _on_X_button_pressed():
 	get_node("Micro_Routines/Micros_BG").hide()
 	lista_de_clicks = []
 	hide_all_selection()
-
 
 func add_remove_OnClick(flag, item):
 	if flag == true:
@@ -146,3 +168,15 @@ func _on_Roupa_btn_pressed():
 
 func _on_return_button_pressed():
 	get_tree().change_scene("res://Scenes/Main_Screen.tscn")
+
+func _on_Create_Routine_button_pressed():
+	print("BOTAO APERTADO")
+	save_list_clicks()
+	get_tree().change_scene("res://Scenes/Main_Screen.tscn")
+
+func _on_button_new_routine_pressed():
+	get_node("Micro_Routines/Micros_BG").show()	
+	get_node("Timer_enable_create").start()
+
+func _on_Timer_enable_create_timeout():
+	get_node("Micro_Routines/Micros_BG/Create_Routine_button").set_disabled(false)

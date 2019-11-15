@@ -19,31 +19,31 @@ font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 
 font/size = 130
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="DynamicFont" id=4]
 
 font/size = 80
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 2 )
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
 
 font/size = 40
 font/use_mipmaps = false
@@ -109,20 +109,6 @@ max_lines_visible = -1
 transform/pos = Vector2( 499.819, 1623.43 )
 texture = ExtResource( 3 )
 
-[node name="Create_routine_btn" type="TouchScreenButton" parent="Main_Layer/Create_Routine"]
-
-transform/pos = Vector2( 0, 10.0867 )
-transform/scale = Vector2( -57.9833, -8.99983 )
-normal = null
-pressed = null
-bitmask = null
-shape = SubResource( 2 )
-shape_centered = true
-shape_visible = false
-passby_press = false
-action = ""
-visibility_mode = 0
-
 [node name="Nova_Rotina" type="Label" parent="Main_Layer/Create_Routine"]
 
 focus/ignore_mouse = true
@@ -133,11 +119,25 @@ margin/left = -265.0
 margin/top = -57.0
 margin/right = 268.0
 margin/bottom = 74.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Nova Rotina"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="button_new_routine" type="TouchScreenButton" parent="Main_Layer/Create_Routine/Nova_Rotina"]
+
+transform/pos = Vector2( 265, 58.4424 )
+transform/scale = Vector2( 54.6677, 9.02503 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 3 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
 
 [node name="Return_btn" type="Label" parent="Main_Layer/Create_Routine"]
 
@@ -149,7 +149,7 @@ margin/left = 428.181
 margin/top = -1596.43
 margin/right = 468.0
 margin/bottom = -1516.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "X"
@@ -164,7 +164,7 @@ transform/scale = Vector2( 3.6344, 4.08113 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 shape_centered = true
 shape_visible = false
 passby_press = false
@@ -201,7 +201,7 @@ margin/left = 50.0
 margin/top = 96.0
 margin/right = 795.0
 margin/bottom = 157.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "Selecione a ordem das atividades para a nova rotina:"
@@ -277,7 +277,6 @@ visibility_mode = 0
 editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 174.828, -203.76 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 
 [node name="Label_Dever" type="Label" parent="Micro_Routines/Micros_BG/Dever/Selection_Dever"]
@@ -322,7 +321,6 @@ visibility_mode = 0
 editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 170.903, -197.676 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 
 [node name="Label_Escovar" type="Label" parent="Micro_Routines/Micros_BG/Escovar/Selection_Escovar"]
@@ -367,7 +365,6 @@ visibility_mode = 0
 editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 170.64, -204.924 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 
 [node name="Label_Escola" type="Label" parent="Micro_Routines/Micros_BG/Escola/Selection_Escola"]
@@ -411,7 +408,6 @@ visibility_mode = 0
 
 visibility/visible = false
 transform/pos = Vector2( 176.973, -205.186 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 
 [node name="Label_Banho" type="Label" parent="Micro_Routines/Micros_BG/Banho/Selection_Banho"]
@@ -455,7 +451,6 @@ visibility_mode = 0
 
 visibility/visible = false
 transform/pos = Vector2( 169.892, -199.411 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 
 [node name="Label_Roupa" type="Label" parent="Micro_Routines/Micros_BG/Roupa/Selection_Roupa"]
@@ -473,7 +468,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Create_Routine_btn" type="TextureButton" parent="Micro_Routines/Micros_BG"]
+[node name="Create_Routine_button" type="TextureButton" parent="Micro_Routines/Micros_BG"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -483,6 +478,7 @@ margin/left = -39.0
 margin/top = 1545.0
 margin/right = 1041.0
 margin/bottom = 1702.0
+disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -501,7 +497,7 @@ margin/left = 927.0
 margin/top = 27.0
 margin/right = 967.0
 margin/bottom = 108.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "X"
@@ -516,14 +512,21 @@ transform/scale = Vector2( 3.6344, 4.08113 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 shape_centered = true
 shape_visible = false
 passby_press = false
 action = ""
 visibility_mode = 0
 
-[connection signal="pressed" from="Main_Layer/Create_Routine/Create_routine_btn" to="." method="_on_Create_routine_btn_pressed"]
+[node name="Timer_enable_create" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="pressed" from="Main_Layer/Create_Routine/Nova_Rotina/button_new_routine" to="." method="_on_button_new_routine_pressed"]
 
 [connection signal="pressed" from="Main_Layer/Create_Routine/Return_btn/return_button" to="." method="_on_return_button_pressed"]
 
@@ -539,6 +542,10 @@ visibility_mode = 0
 
 [connection signal="pressed" from="Micro_Routines/Micros_BG/Roupa/Roupa_btn" to="." method="_on_Roupa_btn_pressed"]
 
+[connection signal="pressed" from="Micro_Routines/Micros_BG/Create_Routine_button" to="." method="_on_Create_Routine_button_pressed"]
+
 [connection signal="pressed" from="Micro_Routines/Micros_BG/X_btn/X_button" to="." method="_on_X_button_pressed"]
+
+[connection signal="timeout" from="Timer_enable_create" to="." method="_on_Timer_enable_create_timeout"]
 
 
