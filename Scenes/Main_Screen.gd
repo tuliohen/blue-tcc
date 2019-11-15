@@ -11,8 +11,9 @@ onready var password_box = get_node("Bar/Top_Menu/Password_Box")
 onready var register_button = get_node("Bar/Top_Menu/Register")
 onready var password_box_register = get_node("Bar/Top_Menu/Password_Box_Register")
 
+const FLAG_PWD = false
+
 func _ready():
-	print("password atual é: ", password)
 	if not save_file.file_exists(save_path):
 		create_save()
 	else:
@@ -54,19 +55,44 @@ func _on_Register_button_pressed():
 	pass # replace with function body
 
 func _on_Enter_Button_pressed():
-	password = get_node("Bar/Top_Menu/Password_Box/current_password").get_text()
-	print(password)
+	var password_input = get_node("Bar/Top_Menu/Password_Box/current_password").get_text()
+	if password_input != password:
+		print("senha errada")
+	else:
+		print("senha correta: ", password)
 
 func _on_Cancel_btn_pressed():
 	get_node("Anim_Bar").play("Up_Bar")
 
-func _on_ok_button_pressed():
+func register_password():
+	var new_password = get_node("Bar/Top_Menu/Password_Box_Register/new_password").get_text()
+	var confirm_password = get_node("Bar/Top_Menu/Password_Box_Register/Confirm_Password_Box/confirm_password").get_text()
+	if new_password == "" and confirm_password == "":
+		FLAG_PWD = false
+	elif new_password == confirm_password:
+		print("entrou aqui")
+		password = new_password
+		FLAG_PWD = true
+	else:
+		print("Passwords diferentes")
+		FLAG_PWD = false
+	
+func _on_ok_button_pressed(): 
+	register_password()
+	print(FLAG_PWD)
+	if FLAG_PWD:
+		enter_button.show()
+		password_box.show()
+		register_button.show()
+		password_box_register.hide()
+		save_password()
+		print(password)
+	else:
+		print("senhaa: ", password)
+		print("senhas diferentes")
+
+func _on_cancel_button_pressed():
 	enter_button.show()
 	password_box.show()
 	register_button.show()
 	password_box_register.hide()
-	password = get_node("Bar/Top_Menu/Password_Box_Register/new_password").get_text()
-	print("ok pressed")
-	save_password()
-	print(password)
-	pass # replace with function body
