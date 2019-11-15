@@ -59,7 +59,7 @@ func _on_Enter_Button_pressed():
 	if password_input != password:
 		print("senha errada")
 	else:
-		print("senha correta: ", password)
+		get_tree().change_scene("res://Scenes/Parents_Screen.tscn")
 
 func _on_Cancel_btn_pressed():
 	get_node("Anim_Bar").play("Up_Bar")
@@ -76,7 +76,11 @@ func register_password():
 	else:
 		print("Passwords diferentes")
 		FLAG_PWD = false
-	
+
+func clean_password_fields():
+	get_node("Bar/Top_Menu/Password_Box_Register/new_password").set_text("")
+	get_node("Bar/Top_Menu/Password_Box_Register/Confirm_Password_Box/confirm_password").set_text("")
+
 func _on_ok_button_pressed(): 
 	register_password()
 	print(FLAG_PWD)
@@ -86,6 +90,7 @@ func _on_ok_button_pressed():
 		register_button.show()
 		password_box_register.hide()
 		save_password()
+		clean_password_fields()
 		print(password)
 	else:
 		print("senhaa: ", password)
@@ -96,3 +101,4 @@ func _on_cancel_button_pressed():
 	password_box.show()
 	register_button.show()
 	password_box_register.hide()
+	clean_password_fields()
