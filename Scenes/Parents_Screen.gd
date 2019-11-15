@@ -2,6 +2,20 @@ extends Node
 
 const IS_ROUTINE = false
 onready var label_crie_rotina = get_node("Micro_Routines/Micros_BG/Label_Crie_Rotina")
+onready var selection_comer = get_node("Micro_Routines/Micros_BG/Comer/Selection_Comer")
+onready var selection_dever = get_node("Micro_Routines/Micros_BG/Dever/Selection_Dever")
+onready var selection_escovar = get_node("Micro_Routines/Micros_BG/Escovar/Selection_Escovar")
+onready var selection_escola = get_node("Micro_Routines/Micros_BG/Escola/Selection_Escola")
+onready var selection_banho = get_node("Micro_Routines/Micros_BG/Banho/Selection_Banho")
+onready var selection_roupa = get_node("Micro_Routines/Micros_BG/Roupa/Selection_Roupa")
+
+onready var label_comer = get_node("Micro_Routines/Micros_BG/Comer/Selection_Comer/Label_Comer")
+onready var label_dever = get_node("Micro_Routines/Micros_BG/Dever/Selection_Dever/Label_Dever")
+onready var label_escovar = get_node("Micro_Routines/Micros_BG/Escovar/Selection_Escovar/Label_Escovar")
+onready var label_escola = get_node("Micro_Routines/Micros_BG/Escola/Selection_Escola/Label_Escola")
+onready var label_banho = get_node("Micro_Routines/Micros_BG/Banho/Selection_Banho/Label_Banho")
+onready var label_roupa = get_node("Micro_Routines/Micros_BG/Roupa/Selection_Roupa/Label_Roupa")
+
 
 var lista_de_clicks = []
 const COMER_PRESSED = false
@@ -30,37 +44,105 @@ func _on_Create_routine_btn_pressed():
 	
 func _on_X_button_pressed():
 	get_node("Micro_Routines/Micros_BG").hide()
+	lista_de_clicks = []
+	hide_all_selection()
 
-func add_remove_list(flag, item):
+
+func add_remove_OnClick(flag, item):
 	if flag == true:
 		lista_de_clicks.append(item)
+		var position = str (lista_de_clicks.find(item) + 1)
+		show_selection(item, position)
+			
 	else:
 		for elem in lista_de_clicks:
 			if elem == item:
 				lista_de_clicks.erase(item)
+				hide_selection(item)
+				update_positions()
+				
+
+func update_positions():
+	label_comer.set_text(str (lista_de_clicks.rfind(COMER)+1))
+	label_dever.set_text(str (lista_de_clicks.rfind(DEVER)+1))
+	label_escovar.set_text(str (lista_de_clicks.rfind(ESCOVAR)+1))
+	label_escola.set_text(str (lista_de_clicks.rfind(ESCOLA)+1))
+	label_banho.set_text(str (lista_de_clicks.rfind(BANHO)+1))
+	label_roupa.set_text(str (lista_de_clicks.rfind(ROUPA)+1))
+
+
+func show_selection(item, position):
+	if item == COMER:
+		selection_comer.show()
+		label_comer.set_text(position)
+	elif item == DEVER:
+		selection_dever.show()
+		label_dever.set_text(position)
+	elif item == ESCOVAR:
+		selection_escovar.show()
+		label_escovar.set_text(position)
+	elif item == ESCOLA:
+		selection_escola.show()
+		label_escola.set_text(position)
+	elif item == BANHO:
+		selection_banho.show()
+		label_banho.set_text(position)
+	else:
+		selection_roupa.show()
+		label_roupa.set_text(position)
+
+
+func hide_selection(item):
+	if item == COMER:
+		selection_comer.hide()
+	elif item == DEVER:
+		selection_dever.hide()
+	elif item == ESCOVAR:
+		selection_escovar.hide()
+	elif item == ESCOLA:
+		selection_escola.hide()
+	elif item == BANHO:
+		selection_banho.hide()
+	else:
+		selection_roupa.hide()
+
+func hide_all_selection():
+	selection_comer.hide()
+	selection_dever.hide()
+	selection_escovar.hide()
+	selection_escola.hide()
+	selection_banho.hide()
+	selection_roupa.hide()
 
 func _on_Comer_btn_pressed():
 	COMER_PRESSED = not COMER_PRESSED
-	add_remove_list(COMER_PRESSED, COMER)
+	add_remove_OnClick(COMER_PRESSED, COMER)
 	print(lista_de_clicks)
 
 func _on_Dever_btn_pressed():
 	DEVER_PRESSED = not DEVER_PRESSED
-	add_remove_list(DEVER_PRESSED, DEVER)
+	add_remove_OnClick(DEVER_PRESSED, DEVER)
 	print(lista_de_clicks)
 
 func _on_Escovar_btn_pressed():
 	ESCOVAR_PRESSED = not ESCOVAR_PRESSED
-	print("escovar")
+	add_remove_OnClick(ESCOVAR_PRESSED, ESCOVAR)
+	print(lista_de_clicks)
 
 func _on_Escola_btn_pressed():
 	ESCOLA_PRESSED = not ESCOLA_PRESSED
-	print("escola")
-	
+	add_remove_OnClick(ESCOLA_PRESSED, ESCOLA)
+	print(lista_de_clicks)
+
 func _on_Banho_btn_pressed():
 	BANHO_PRESSED = not BANHO_PRESSED
-	print("banho")
+	add_remove_OnClick(BANHO_PRESSED, BANHO)
+	print(lista_de_clicks)
 	
 func _on_Roupa_btn_pressed():
 	ROUPA_PRESSED = not ROUPA_PRESSED
-	print("roupa")
+	add_remove_OnClick(ROUPA_PRESSED, ROUPA)
+	print(lista_de_clicks)
+
+func _on_return_button_pressed():
+	get_tree().change_scene("res://Scenes/Main_Screen.tscn")

@@ -1,15 +1,16 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Scenes/Parents_Screen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/TragicMarker.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Itens/botao_criar_rotina.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Itens/comer.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Itens/dever_de_casa.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Itens/escovar_dentes.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Itens/ir_escola.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Itens/tomar_banho.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Itens/vestir_roupa.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Itens/criar_rotina_btn.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Itens/selecionar_rotina_ic.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Itens/dever_de_casa.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Itens/escovar_dentes.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Itens/ir_escola.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Itens/tomar_banho.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Itens/vestir_roupa.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Itens/criar_rotina_btn.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -30,6 +31,18 @@ font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=5]
+
+font/size = 80
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 2 )
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [sub_resource type="DynamicFont" id=4]
 
 font/size = 40
@@ -42,17 +55,12 @@ font/font = ExtResource( 2 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=8]
 
-font/size = 80
+font/size = 60
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 2 )
-
-[sub_resource type="CircleShape2D" id=6]
-
-custom_solver_bias = 0.0
-radius = 10.0
 
 [node name="Parents_Screen" type="Node"]
 
@@ -131,6 +139,38 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Return_btn" type="Label" parent="Main_Layer/Create_Routine"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 428.181
+margin/top = -1596.43
+margin/right = 468.0
+margin/bottom = -1516.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
+custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
+text = "X"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="return_button" type="TouchScreenButton" parent="Main_Layer/Create_Routine/Return_btn"]
+
+transform/pos = Vector2( 20, 30 )
+transform/scale = Vector2( 3.6344, 4.08113 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 6 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
 [node name="Micro_Routines" type="CanvasLayer" parent="."]
 
 layer = 23
@@ -140,6 +180,7 @@ scale = Vector2( 1, 1 )
 
 [node name="Micros_BG" type="ColorFrame" parent="Micro_Routines"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -183,16 +224,38 @@ pressed = null
 bitmask = null
 shape = SubResource( 7 )
 shape_centered = true
-shape_visible = true
+shape_visible = false
 passby_press = false
 action = ""
 visibility_mode = 0
 
+[node name="Selection_Comer" type="Sprite" parent="Micro_Routines/Micros_BG/Comer"]
+
+visibility/visible = false
+transform/pos = Vector2( 173.245, -198.807 )
+texture = ExtResource( 5 )
+
+[node name="Label_Comer" type="Label" parent="Micro_Routines/Micros_BG/Comer/Selection_Comer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 8 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Dever" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 282.641, 826.069 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Dever_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Dever"]
 
@@ -204,16 +267,40 @@ pressed = null
 bitmask = null
 shape = SubResource( 7 )
 shape_centered = true
-shape_visible = true
+shape_visible = false
 passby_press = false
 action = ""
 visibility_mode = 0
 
+[node name="Selection_Dever" type="Sprite" parent="Micro_Routines/Micros_BG/Dever"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 174.828, -203.76 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[node name="Label_Dever" type="Label" parent="Micro_Routines/Micros_BG/Dever/Selection_Dever"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 8 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Escovar" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 715.781, 381.202 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Escovar_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Escovar"]
 
@@ -225,16 +312,40 @@ pressed = null
 bitmask = null
 shape = SubResource( 7 )
 shape_centered = true
-shape_visible = true
+shape_visible = false
 passby_press = false
 action = ""
 visibility_mode = 0
 
+[node name="Selection_Escovar" type="Sprite" parent="Micro_Routines/Micros_BG/Escovar"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 170.903, -197.676 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[node name="Label_Escovar" type="Label" parent="Micro_Routines/Micros_BG/Escovar/Selection_Escovar"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 8 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Escola" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 715.991, 827 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Escola_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Escola"]
 
@@ -246,16 +357,40 @@ pressed = null
 bitmask = null
 shape = SubResource( 7 )
 shape_centered = true
-shape_visible = true
+shape_visible = false
 passby_press = false
 action = ""
 visibility_mode = 0
 
+[node name="Selection_Escola" type="Sprite" parent="Micro_Routines/Micros_BG/Escola"]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 170.64, -204.924 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[node name="Label_Escola" type="Label" parent="Micro_Routines/Micros_BG/Escola/Selection_Escola"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 8 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Banho" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 280.925, 1277.21 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Banho_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Banho"]
 
@@ -267,16 +402,39 @@ pressed = null
 bitmask = null
 shape = SubResource( 7 )
 shape_centered = true
-shape_visible = true
+shape_visible = false
 passby_press = false
 action = ""
 visibility_mode = 0
 
+[node name="Selection_Banho" type="Sprite" parent="Micro_Routines/Micros_BG/Banho"]
+
+visibility/visible = false
+transform/pos = Vector2( 176.973, -205.186 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[node name="Label_Banho" type="Label" parent="Micro_Routines/Micros_BG/Banho/Selection_Banho"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 8 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Roupa" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 716.59, 1272.59 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Roupa_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Roupa"]
 
@@ -288,10 +446,32 @@ pressed = null
 bitmask = null
 shape = SubResource( 7 )
 shape_centered = true
-shape_visible = true
+shape_visible = false
 passby_press = false
 action = ""
 visibility_mode = 0
+
+[node name="Selection_Roupa" type="Sprite" parent="Micro_Routines/Micros_BG/Roupa"]
+
+visibility/visible = false
+transform/pos = Vector2( 169.892, -199.411 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[node name="Label_Roupa" type="Label" parent="Micro_Routines/Micros_BG/Roupa/Selection_Roupa"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 8 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="Create_Routine_btn" type="TextureButton" parent="Micro_Routines/Micros_BG"]
 
@@ -306,12 +486,13 @@ margin/bottom = 1702.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
+textures/normal = ExtResource( 11 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
 [node name="X_btn" type="Label" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -343,6 +524,8 @@ action = ""
 visibility_mode = 0
 
 [connection signal="pressed" from="Main_Layer/Create_Routine/Create_routine_btn" to="." method="_on_Create_routine_btn_pressed"]
+
+[connection signal="pressed" from="Main_Layer/Create_Routine/Return_btn/return_button" to="." method="_on_return_button_pressed"]
 
 [connection signal="pressed" from="Micro_Routines/Micros_BG/Comer/Comer_btn" to="." method="_on_Comer_btn_pressed"]
 
