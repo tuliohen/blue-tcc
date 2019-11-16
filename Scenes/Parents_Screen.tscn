@@ -157,7 +157,6 @@ visibility_mode = 0
 
 [node name="Micro_Routines" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 23
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -196,6 +195,7 @@ max_lines_visible = -1
 
 [node name="Comer" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 283.907, 382.106 )
 transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
@@ -237,6 +237,7 @@ max_lines_visible = -1
 
 [node name="Dever" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 282.641, 826.069 )
 transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 7 )
@@ -279,6 +280,7 @@ max_lines_visible = -1
 
 [node name="Escovar" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 715.781, 381.202 )
 transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 8 )
@@ -321,6 +323,7 @@ max_lines_visible = -1
 
 [node name="Escola" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 715.991, 827 )
 transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 9 )
@@ -363,6 +366,7 @@ max_lines_visible = -1
 
 [node name="Banho" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 280.925, 1277.21 )
 transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 10 )
@@ -405,6 +409,7 @@ max_lines_visible = -1
 
 [node name="Roupa" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
+editor/display_folded = true
 transform/pos = Vector2( 716.59, 1272.59 )
 transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 11 )
