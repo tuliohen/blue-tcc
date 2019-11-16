@@ -1,7 +1,8 @@
 extends Node
 
-const IS_ROUTINE = false
-onready var label_crie_rotina = get_node("Micro_Routines/Micros_BG/Label_Crie_Rotina")
+var card_scene = preload("res://Scenes/Card_Routine.tscn")
+
+onready var no_routines_img = get_node("Main_Layer/BG/No_Routines")
 onready var selection_comer = get_node("Micro_Routines/Micros_BG/Comer/Selection_Comer")
 onready var selection_dever = get_node("Micro_Routines/Micros_BG/Dever/Selection_Dever")
 onready var selection_escovar = get_node("Micro_Routines/Micros_BG/Escovar/Selection_Escovar")
@@ -18,7 +19,11 @@ onready var label_roupa = get_node("Micro_Routines/Micros_BG/Roupa/Selection_Rou
 
 var save_file = File.new()
 var save_path = "res://save_routines.save"
-var save_data = {"lista_de_clicks":[]}
+var save_data = {"lista_de_clicks":[],"is_routine":false}
+
+onready var card_routine = card_scene.instance()
+
+const IS_ROUTINE = false
 
 var lista_de_clicks = []
 const COMER_PRESSED = false
@@ -34,18 +39,17 @@ const ESCOLA = "ESCOLA"
 const BANHO = "BANHO"
 const ROUPA = "ROUPA"
 
-
 func _ready():
-	if IS_ROUTINE:
-		print("rotina criada")
-		label_crie_rotina.hide()
-	else:
-		label_crie_rotina.show()
-	
 	if not save_file.file_exists(save_path):
 		create_save()
 	else:
 		load_list_clicks()
+		
+	if IS_ROUTINE:
+		print("rotina criada")
+		no_routines_img.hide()
+	else:
+		no_routines_img.show()
 
 func create_save():
 	save_file.open(save_path, File.WRITE)
@@ -54,6 +58,7 @@ func create_save():
 
 func save_list_clicks():
 	save_data["lista_de_clicks"] = lista_de_clicks
+	save_data["is_routine"] = IS_ROUTINE
 	save_file.open(save_path, File.WRITE)
 	save_file.store_var(save_data)
 	save_file.close()
@@ -63,7 +68,8 @@ func load_list_clicks():
 	save_data = save_file.get_var()
 	save_file.close()
 	lista_de_clicks = save_data["lista_de_clicks"]
-	print("loaded lista: ", lista_de_clicks)
+	IS_ROUTINE = save_data["is_routine"]
+	print("loaded lista, is_routine: ", lista_de_clicks, IS_ROUTINE)
 	
 func _on_X_button_pressed():
 	get_node("Micro_Routines/Micros_BG").hide()
@@ -171,8 +177,10 @@ func _on_return_button_pressed():
 
 func _on_Create_Routine_button_pressed():
 	print("BOTAO APERTADO")
+	IS_ROUTINE = true	
 	save_list_clicks()
-	get_tree().change_scene("res://Scenes/Main_Screen.tscn")
+	get_node("Main_Layer/BG").add_child(card_routine)
+	get_node("Micro_Routines/Micros_BG").hide()
 
 func _on_button_new_routine_pressed():
 	get_node("Micro_Routines/Micros_BG").show()	

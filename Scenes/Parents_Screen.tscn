@@ -1,66 +1,60 @@
 [gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Scenes/Parents_Screen.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Fonts/TragicMarker.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Itens/nenhuma_rotina.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Itens/botao_criar_rotina.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Itens/comer.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Itens/selecionar_rotina_ic.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Itens/dever_de_casa.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Itens/escovar_dentes.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Itens/ir_escola.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Itens/tomar_banho.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Itens/vestir_roupa.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Itens/criar_rotina_btn.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Fonts/TragicMarker.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Itens/comer.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Itens/selecionar_rotina_ic.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Itens/dever_de_casa.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Itens/escovar_dentes.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Itens/ir_escola.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Itens/tomar_banho.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Itens/vestir_roupa.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Itens/criar_rotina_btn.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
-
-font/size = 80
-font/use_mipmaps = false
-font/use_filter = false
-font/font = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
 
 font/size = 130
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 2 )
+font/font = ExtResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 
 font/size = 80
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 2 )
+font/font = ExtResource( 4 )
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 
 font/size = 40
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 2 )
+font/font = ExtResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 
 font/size = 60
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 2 )
+font/font = ExtResource( 4 )
 
 [node name="Parents_Screen" type="Node"]
 
@@ -75,7 +69,6 @@ scale = Vector2( 1, 1 )
 
 [node name="BG" type="ColorFrame" parent="Main_Layer"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -86,31 +79,21 @@ margin/right = 1000.0
 margin/bottom = 1700.0
 color = Color( 0.976471, 0.976471, 0.976471, 1 )
 
-[node name="rotina_msg" type="Label" parent="Main_Layer/BG"]
+[node name="No_Routines" type="Sprite" parent="Main_Layer/BG"]
 
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 163.0
-margin/top = 736.0
-margin/right = 843.0
-margin/bottom = 817.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
-custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
-text = "Crie sua primeira rotina"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+transform/pos = Vector2( 533.704, 760.296 )
+transform/scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 2 )
 
 [node name="Create_Routine" type="Sprite" parent="Main_Layer"]
 
+editor/display_folded = true
 transform/pos = Vector2( 499.819, 1623.43 )
 texture = ExtResource( 3 )
 
 [node name="Nova_Rotina" type="Label" parent="Main_Layer/Create_Routine"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -119,7 +102,7 @@ margin/left = -265.0
 margin/top = -57.0
 margin/right = 268.0
 margin/bottom = 74.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Nova Rotina"
 percent_visible = 1.0
 lines_skipped = 0
@@ -132,7 +115,7 @@ transform/scale = Vector2( 54.6677, 9.02503 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 shape_centered = true
 shape_visible = true
 passby_press = false
@@ -141,6 +124,7 @@ visibility_mode = 0
 
 [node name="Return_btn" type="Label" parent="Main_Layer/Create_Routine"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -149,7 +133,7 @@ margin/left = 428.181
 margin/top = -1596.43
 margin/right = 468.0
 margin/bottom = -1516.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "X"
@@ -164,7 +148,7 @@ transform/scale = Vector2( 3.6344, 4.08113 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 shape_centered = true
 shape_visible = false
 passby_press = false
@@ -173,6 +157,7 @@ visibility_mode = 0
 
 [node name="Micro_Routines" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 23
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -201,7 +186,7 @@ margin/left = 50.0
 margin/top = 96.0
 margin/right = 795.0
 margin/bottom = 157.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "Selecione a ordem das atividades para a nova rotina:"
@@ -213,7 +198,7 @@ max_lines_visible = -1
 
 transform/pos = Vector2( 283.907, 382.106 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Comer_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Comer"]
 
@@ -222,7 +207,7 @@ transform/scale = Vector2( -22.5, -26.1233 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 shape_centered = true
 shape_visible = false
 passby_press = false
@@ -233,7 +218,7 @@ visibility_mode = 0
 
 visibility/visible = false
 transform/pos = Vector2( 173.245, -198.807 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Label_Comer" type="Label" parent="Micro_Routines/Micros_BG/Comer/Selection_Comer"]
 
@@ -245,17 +230,16 @@ margin/left = -7.0
 margin/top = -26.0
 margin/right = 8.0
 margin/bottom = 35.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Dever" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
-editor/display_folded = true
 transform/pos = Vector2( 282.641, 826.069 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Dever_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Dever"]
 
@@ -265,7 +249,7 @@ transform/scale = Vector2( 22.5, 24.1807 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 shape_centered = true
 shape_visible = false
 passby_press = false
@@ -274,10 +258,9 @@ visibility_mode = 0
 
 [node name="Selection_Dever" type="Sprite" parent="Micro_Routines/Micros_BG/Dever"]
 
-editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 174.828, -203.76 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Label_Dever" type="Label" parent="Micro_Routines/Micros_BG/Dever/Selection_Dever"]
 
@@ -289,17 +272,16 @@ margin/left = -7.0
 margin/top = -26.0
 margin/right = 8.0
 margin/bottom = 35.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Escovar" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
-editor/display_folded = true
 transform/pos = Vector2( 715.781, 381.202 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Escovar_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Escovar"]
 
@@ -309,7 +291,7 @@ transform/scale = Vector2( 22.5, 25.8812 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 shape_centered = true
 shape_visible = false
 passby_press = false
@@ -318,10 +300,9 @@ visibility_mode = 0
 
 [node name="Selection_Escovar" type="Sprite" parent="Micro_Routines/Micros_BG/Escovar"]
 
-editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 170.903, -197.676 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Label_Escovar" type="Label" parent="Micro_Routines/Micros_BG/Escovar/Selection_Escovar"]
 
@@ -333,17 +314,16 @@ margin/left = -7.0
 margin/top = -26.0
 margin/right = 8.0
 margin/bottom = 35.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Escola" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
-editor/display_folded = true
 transform/pos = Vector2( 715.991, 827 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Escola_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Escola"]
 
@@ -353,7 +333,7 @@ transform/scale = Vector2( 22.5, 23.4749 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 shape_centered = true
 shape_visible = false
 passby_press = false
@@ -362,10 +342,9 @@ visibility_mode = 0
 
 [node name="Selection_Escola" type="Sprite" parent="Micro_Routines/Micros_BG/Escola"]
 
-editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 170.64, -204.924 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Label_Escola" type="Label" parent="Micro_Routines/Micros_BG/Escola/Selection_Escola"]
 
@@ -377,17 +356,16 @@ margin/left = -7.0
 margin/top = -26.0
 margin/right = 8.0
 margin/bottom = 35.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Banho" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
-editor/display_folded = true
 transform/pos = Vector2( 280.925, 1277.21 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Banho_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Banho"]
 
@@ -397,7 +375,7 @@ transform/scale = Vector2( 22.5, 24.0721 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 shape_centered = true
 shape_visible = false
 passby_press = false
@@ -408,7 +386,7 @@ visibility_mode = 0
 
 visibility/visible = false
 transform/pos = Vector2( 176.973, -205.186 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Label_Banho" type="Label" parent="Micro_Routines/Micros_BG/Banho/Selection_Banho"]
 
@@ -420,17 +398,16 @@ margin/left = -7.0
 margin/top = -26.0
 margin/right = 8.0
 margin/bottom = 35.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Roupa" type="Sprite" parent="Micro_Routines/Micros_BG"]
 
-editor/display_folded = true
 transform/pos = Vector2( 716.59, 1272.59 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Roupa_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Roupa"]
 
@@ -440,7 +417,7 @@ transform/scale = Vector2( 22.5, 24.0721 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 shape_centered = true
 shape_visible = false
 passby_press = false
@@ -451,7 +428,7 @@ visibility_mode = 0
 
 visibility/visible = false
 transform/pos = Vector2( 169.892, -199.411 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Label_Roupa" type="Label" parent="Micro_Routines/Micros_BG/Roupa/Selection_Roupa"]
 
@@ -463,7 +440,7 @@ margin/left = -7.0
 margin/top = -26.0
 margin/right = 8.0
 margin/bottom = 35.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -482,13 +459,12 @@ disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 11 )
+textures/normal = ExtResource( 12 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
 [node name="X_btn" type="Label" parent="Micro_Routines/Micros_BG"]
 
-editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -497,7 +473,7 @@ margin/left = 927.0
 margin/top = 27.0
 margin/right = 967.0
 margin/bottom = 108.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "X"
@@ -512,7 +488,7 @@ transform/scale = Vector2( 3.6344, 4.08113 )
 normal = null
 pressed = null
 bitmask = null
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 shape_centered = true
 shape_visible = false
 passby_press = false
