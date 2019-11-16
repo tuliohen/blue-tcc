@@ -29,12 +29,12 @@ const ESCOVAR_PRESSED = false
 const ESCOLA_PRESSED = false
 const BANHO_PRESSED = false
 const ROUPA_PRESSED = false
-const COMER = "COMER"
-const DEVER = "DEVER"
-const ESCOVAR = "ESCOVAR"
-const ESCOLA = "ESCOLA"
-const BANHO = "BANHO"
-const ROUPA = "ROUPA"
+const COMER = "Comer"
+const DEVER = "Dever"
+const ESCOVAR = "Escovar"
+const ESCOLA = "Escola"
+const BANHO = "Banho"
+const ROUPA = "Roupa"
 
 func _ready():
 	if not save_file.file_exists(save_path):

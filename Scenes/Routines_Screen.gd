@@ -6,20 +6,29 @@ const IS_ROUTINE = false
 var save_file = File.new()
 var save_path = "res://save_routines.save"
 
-var card_comer = preload("res://Scenes/Card_Comer.tscn")
-var card_escovar = preload("res://Scenes/Card_Escovar.tscn")
-var card_banho = preload("res://Scenes/Card_Banho.tscn")
-var card_escola = preload("res://Scenes/Card_Escola.tscn")
-var card_roupa = preload("res://Scenes/Card_Roupa.tscn")
-var card_dever = preload("res://Scenes/Card_Dever.tscn")
+onready var scroll_list = get_node("CanvasLayer/Panel/ScrollContainer/VBoxContainer")
+
+var empty_control = preload("res://Scenes/Empty_Control.tscn") 
+onready var empty_node = empty_control.instance()
+
+const PATH = ""
+var card = ""
 
 func _ready():
-	load_list_clicks()
-	pass
+	if not save_file.file_exists(save_path):
+		create_save()
+	else:
+		load_list_clicks()
+	load_routine()
 
 func save_list_clicks():
 	save_data["lista_de_clicks"] = lista_de_clicks
 	save_data["is_routine"] = IS_ROUTINE
+	save_file.open(save_path, File.WRITE)
+	save_file.store_var(save_data)
+	save_file.close()
+	
+func create_save():
 	save_file.open(save_path, File.WRITE)
 	save_file.store_var(save_data)
 	save_file.close()
@@ -32,7 +41,13 @@ func load_list_clicks():
 	IS_ROUTINE = save_data["is_routine"]
 	print("loaded lista, is_routine: ", lista_de_clicks, IS_ROUTINE)
 	
-
 func load_routine():
-	pass
-
+	if lista_de_clicks == []:
+		print("Lista vazia")
+	else:
+		for item in lista_de_clicks:
+			PATH = "res://Scenes/Card_"+item+".tscn" 
+			print(PATH)
+			card = load(PATH)
+			scroll_list.add_child(card.instance())
+		scroll_list.add_child(empty_node)

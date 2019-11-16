@@ -199,6 +199,7 @@ max_lines_visible = -1
 
 [node name="Bar" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 21
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -499,8 +500,6 @@ action = ""
 visibility_mode = 0
 
 [node name="Routines_Button" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="Rotinas" type="Label" parent="Routines_Button"]
 
