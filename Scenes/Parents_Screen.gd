@@ -1,6 +1,5 @@
 extends Node
 
-var card_scene = preload("res://Scenes/Card_Routine.tscn")
 
 onready var no_routines_img = get_node("Main_Layer/BG/No_Routines")
 onready var selection_comer = get_node("Micro_Routines/Micros_BG/Comer/Selection_Comer")
@@ -20,8 +19,6 @@ onready var label_roupa = get_node("Micro_Routines/Micros_BG/Roupa/Selection_Rou
 var save_file = File.new()
 var save_path = "res://save_routines.save"
 var save_data = {"lista_de_clicks":[],"is_routine":false}
-
-onready var card_routine = card_scene.instance()
 
 const IS_ROUTINE = false
 
@@ -179,7 +176,6 @@ func _on_Create_Routine_button_pressed():
 	print("BOTAO APERTADO")
 	IS_ROUTINE = true	
 	save_list_clicks()
-	get_node("Main_Layer/BG").add_child(card_routine)
 	get_node("Micro_Routines/Micros_BG").hide()
 
 func _on_button_new_routine_pressed():
