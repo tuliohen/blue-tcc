@@ -4,7 +4,7 @@ var save_data = {"lista_de_clicks":[],"is_routine":false}
 var lista_de_clicks = []
 const IS_ROUTINE = false
 var save_file = File.new()
-var save_path = "res://save_routines.save"
+var save_path = "user://save_routines.save"
 
 onready var scroll_list = get_node("CanvasLayer/Panel/ScrollContainer/VBoxContainer")
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Itens/escovar_os_dentes_ic.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/TragicMarker.otf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 
 font/size = 70
 font/use_mipmaps = false
@@ -15,7 +15,7 @@ font/font = ExtResource( 2 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=4]
 
 script/source = "extends TouchScreenButton
 
@@ -25,8 +25,8 @@ func _on_TouchScreenButton_pressed():
 
 [node name="Card_Routine" type="Control"]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
+focus/ignore_mouse = true
+focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
@@ -63,7 +63,7 @@ margin/left = 23.0
 margin/top = 446.0
 margin/right = 479.0
 margin/bottom = 563.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "Escovar os dentes"
@@ -85,7 +85,7 @@ shape_visible = true
 passby_press = false
 action = ""
 visibility_mode = 0
-script/script = SubResource( 3 )
+script/script = SubResource( 4 )
 
 [connection signal="pressed" from="ColorFrame/TouchScreenButton" to="ColorFrame/TouchScreenButton" method="_on_TouchScreenButton_pressed"]
 

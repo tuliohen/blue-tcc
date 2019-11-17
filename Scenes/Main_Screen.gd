@@ -3,7 +3,7 @@ extends Node
 var password = ""
 
 var save_file = File.new()
-var save_path = "res://savegame.save"
+var save_path = "user://savegame.save"
 var save_data = {"password": ""}
 
 onready var enter_button = get_node("Bar/Top_Menu/Enter_Button")
