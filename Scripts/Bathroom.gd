@@ -18,13 +18,6 @@ onready var botao_glass = get_node("CanvasLayer/Glass/Glass_button")
 
 onready var botao_som = get_node("Selection_Sound")
 
-const CAM_CERTO = 0
-const EXCELENTE = 1
-const CONTINUE_ASSSIM = 2
-const ISSO_MESMO = 3
-const OTIMO = 4
-const PARABENS = 5
-
 func _on_Red_Brush_pressed():
 	botao_som.play(0)
 	botao_escova.set_disabled(true)
@@ -92,29 +85,8 @@ func _on_Glass_button_pressed():
 	get_node("CanvasLayer/Glass/Anim_Glass").stop_all()
 	get_node("CanvasLayer/Red_Brush").show()
 	get_node("CanvasLayer/Red_Brush/Anim_Brush").stop_all()
-	play_feedback()
-	
-func play_feedback():
-	sound += int(rand_range(0,5)) 
-	print(sound)
-	if sound == CAM_CERTO:
-		som.set_stream(load("res://Assets/Sounds/Falas/CaminhoCerto.ogg"))
-		som.play(0)
-	elif sound == EXCELENTE:
-		som.set_stream(load("res://Assets/Sounds/Falas/Excelente.ogg"))
-		som.play(0)
-	elif sound == CONTINUE_ASSSIM:
-		som.set_stream(load("res://Assets/Sounds/Falas/ContinueAssim.ogg"))
-		som.play(0)
-	elif sound == ISSO_MESMO:
-		som.set_stream(load("res://Assets/Sounds/Falas/IssoMesmo.ogg"))
-		som.play(0)
-	elif sound == OTIMO:
-		som.set_stream(load("res://Assets/Sounds/Falas/OtimoTrabalho.ogg"))
-		som.play(0)
-	else:
-		som.set_stream(load("res://Assets/Sounds/Falas/Parabens.ogg"))
-		som.play(0)
+	get_node("Timer_to_change").start()
 	
 
-
+func _on_Timer_to_change_timeout():
+	get_tree().change_scene("res://Scenes/Concluido.tscn")

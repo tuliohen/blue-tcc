@@ -69,6 +69,7 @@ scale = Vector2( 1, 1 )
 
 [node name="BG" type="ColorFrame" parent="Main_Layer"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -164,7 +165,6 @@ scale = Vector2( 1, 1 )
 
 [node name="Micros_BG" type="ColorFrame" parent="Micro_Routines"]
 
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

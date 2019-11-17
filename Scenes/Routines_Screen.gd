@@ -51,3 +51,6 @@ func load_routine():
 			card = load(PATH)
 			scroll_list.add_child(card.instance())
 		scroll_list.add_child(empty_node)
+
+func _on_Voltar_btn_pressed():
+	get_tree().change_scene("res://Scenes/Main_Screen.tscn")

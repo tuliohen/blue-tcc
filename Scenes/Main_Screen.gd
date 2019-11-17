@@ -39,7 +39,6 @@ func load_password():
 	
 func _on_Routines_btn_pressed():
 	get_tree().change_scene("res://Scenes/Routines_Screen.tscn")
-	pass # replace with function body
 
 func _on_Menu_Button_pressed():
 	print("menu pressed")

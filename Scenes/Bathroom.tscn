@@ -532,6 +532,13 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
+[node name="Timer_to_change" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.6
+one_shot = true
+autostart = false
+
 [connection signal="pressed" from="CanvasLayer/Character/Character_button" to="." method="_on_Character_button_pressed"]
 
 [connection signal="pressed" from="CanvasLayer/Faucet/Faucet_button" to="." method="_on_Faucet_button_pressed"]
@@ -545,5 +552,7 @@ stream/buffering_ms = 500
 [connection signal="timeout" from="CanvasLayer/Timer_to_faucet" to="." method="_on_Timer_to_faucet_timeout"]
 
 [connection signal="timeout" from="Timer_to_wash" to="." method="_on_Timer_to_wash_timeout"]
+
+[connection signal="timeout" from="Timer_to_change" to="." method="_on_Timer_to_change_timeout"]
 
 
