@@ -1,0 +1,532 @@
+[gd_scene load_steps=20 format=1]
+
+[ext_resource path="res://Scenes/Parents_Screen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Itens/nenhuma_rotina.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Itens/botao_criar_rotina.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/TragicMarker.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Itens/comer.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Itens/selecionar_rotina_ic.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Itens/dever_de_casa.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Itens/escovar_dentes.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Itens/ir_escola.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Itens/tomar_banho.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Itens/vestir_roupa.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Itens/criar_rotina_btn.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 130
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="DynamicFont" id=3]
+
+font/size = 80
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 4 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="DynamicFont" id=5]
+
+font/size = 40
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="DynamicFont" id=7]
+
+font/size = 60
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 4 )
+
+[node name="Parents_Screen" type="Node"]
+
+script/script = ExtResource( 1 )
+
+[node name="Main_Layer" type="CanvasLayer" parent="."]
+
+layer = 22
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="BG" type="ColorFrame" parent="Main_Layer"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1000.0
+margin/bottom = 1700.0
+color = Color( 0.976471, 0.976471, 0.976471, 1 )
+
+[node name="No_Routines" type="Sprite" parent="Main_Layer/BG"]
+
+transform/pos = Vector2( 533.704, 760.296 )
+transform/scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 2 )
+
+[node name="Create_Routine" type="Sprite" parent="Main_Layer"]
+
+editor/display_folded = true
+transform/pos = Vector2( 499.819, 1623.43 )
+texture = ExtResource( 3 )
+
+[node name="Nova_Rotina" type="Label" parent="Main_Layer/Create_Routine"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -265.0
+margin/top = -57.0
+margin/right = 268.0
+margin/bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+text = "Nova Rotina"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="button_new_routine" type="TouchScreenButton" parent="Main_Layer/Create_Routine/Nova_Rotina"]
+
+transform/pos = Vector2( 265, 58.4424 )
+transform/scale = Vector2( 54.6677, 9.02503 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 2 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Return_btn" type="Label" parent="Main_Layer/Create_Routine"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 428.181
+margin/top = -1596.43
+margin/right = 468.0
+margin/bottom = -1516.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
+custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
+text = "X"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="return_button" type="TouchScreenButton" parent="Main_Layer/Create_Routine/Return_btn"]
+
+transform/pos = Vector2( 20, 30 )
+transform/scale = Vector2( 3.6344, 4.08113 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 4 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Micro_Routines" type="CanvasLayer" parent="."]
+
+layer = 23
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Micros_BG" type="ColorFrame" parent="Micro_Routines"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1.0
+margin/top = 0.0
+margin/right = 1001.0
+margin/bottom = 1700.0
+color = Color( 0.976471, 0.976471, 0.976471, 1 )
+
+[node name="Label_Crie_Rotina" type="Label" parent="Micro_Routines/Micros_BG"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 50.0
+margin/top = 96.0
+margin/right = 795.0
+margin/bottom = 157.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
+custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
+text = "Selecione a ordem das atividades para a nova rotina:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Comer" type="Sprite" parent="Micro_Routines/Micros_BG"]
+
+editor/display_folded = true
+transform/pos = Vector2( 283.907, 382.106 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 5 )
+
+[node name="Comer_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Comer"]
+
+transform/pos = Vector2( 19.8341, 13.5195 )
+transform/scale = Vector2( -22.5, -26.1233 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 6 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Selection_Comer" type="Sprite" parent="Micro_Routines/Micros_BG/Comer"]
+
+visibility/visible = false
+transform/pos = Vector2( 173.245, -198.807 )
+texture = ExtResource( 6 )
+
+[node name="Label_Comer" type="Label" parent="Micro_Routines/Micros_BG/Comer/Selection_Comer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 7 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Dever" type="Sprite" parent="Micro_Routines/Micros_BG"]
+
+editor/display_folded = true
+transform/pos = Vector2( 282.641, 826.069 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+
+[node name="Dever_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Dever"]
+
+transform/pos = Vector2( 21.8671, 24.822 )
+transform/rot = 180.0
+transform/scale = Vector2( 22.5, 24.1807 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 6 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Selection_Dever" type="Sprite" parent="Micro_Routines/Micros_BG/Dever"]
+
+visibility/visible = false
+transform/pos = Vector2( 174.828, -203.76 )
+texture = ExtResource( 6 )
+
+[node name="Label_Dever" type="Label" parent="Micro_Routines/Micros_BG/Dever/Selection_Dever"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 7 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Escovar" type="Sprite" parent="Micro_Routines/Micros_BG"]
+
+editor/display_folded = true
+transform/pos = Vector2( 715.781, 381.202 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 8 )
+
+[node name="Escovar_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Escovar"]
+
+transform/pos = Vector2( 14.3893, 16.3499 )
+transform/rot = -180.0
+transform/scale = Vector2( 22.5, 25.8812 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 6 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Selection_Escovar" type="Sprite" parent="Micro_Routines/Micros_BG/Escovar"]
+
+visibility/visible = false
+transform/pos = Vector2( 170.903, -197.676 )
+texture = ExtResource( 6 )
+
+[node name="Label_Escovar" type="Label" parent="Micro_Routines/Micros_BG/Escovar/Selection_Escovar"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 7 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Escola" type="Sprite" parent="Micro_Routines/Micros_BG"]
+
+editor/display_folded = true
+transform/pos = Vector2( 715.991, 827 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
+
+[node name="Escola_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Escola"]
+
+transform/pos = Vector2( 12.4264, 11.0492 )
+transform/rot = -180.0
+transform/scale = Vector2( 22.5, 23.4749 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 6 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Selection_Escola" type="Sprite" parent="Micro_Routines/Micros_BG/Escola"]
+
+visibility/visible = false
+transform/pos = Vector2( 170.64, -204.924 )
+texture = ExtResource( 6 )
+
+[node name="Label_Escola" type="Label" parent="Micro_Routines/Micros_BG/Escola/Selection_Escola"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 7 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Banho" type="Sprite" parent="Micro_Routines/Micros_BG"]
+
+editor/display_folded = true
+transform/pos = Vector2( 280.925, 1277.21 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 10 )
+
+[node name="Banho_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Banho"]
+
+transform/pos = Vector2( 29.1136, 21.9415 )
+transform/rot = -180.0
+transform/scale = Vector2( 22.5, 24.0721 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 6 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Selection_Banho" type="Sprite" parent="Micro_Routines/Micros_BG/Banho"]
+
+visibility/visible = false
+transform/pos = Vector2( 176.973, -205.186 )
+texture = ExtResource( 6 )
+
+[node name="Label_Banho" type="Label" parent="Micro_Routines/Micros_BG/Banho/Selection_Banho"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 7 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Roupa" type="Sprite" parent="Micro_Routines/Micros_BG"]
+
+editor/display_folded = true
+transform/pos = Vector2( 716.59, 1272.59 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+
+[node name="Roupa_btn" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/Roupa"]
+
+transform/pos = Vector2( 25.2816, 20.9144 )
+transform/rot = -180.0
+transform/scale = Vector2( 22.5, 24.0721 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 6 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Selection_Roupa" type="Sprite" parent="Micro_Routines/Micros_BG/Roupa"]
+
+visibility/visible = false
+transform/pos = Vector2( 169.892, -199.411 )
+texture = ExtResource( 6 )
+
+[node name="Label_Roupa" type="Label" parent="Micro_Routines/Micros_BG/Roupa/Selection_Roupa"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -7.0
+margin/top = -26.0
+margin/right = 8.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 7 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Create_Routine_button" type="TextureButton" parent="Micro_Routines/Micros_BG"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -39.0
+margin/top = 1545.0
+margin/right = 1041.0
+margin/bottom = 1702.0
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 12 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="X_btn" type="Label" parent="Micro_Routines/Micros_BG"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 927.0
+margin/top = 27.0
+margin/right = 967.0
+margin/bottom = 108.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
+custom_colors/font_color_shadow = Color( 0.356863, 0.356863, 0.356863, 1 )
+text = "X"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="X_button" type="TouchScreenButton" parent="Micro_Routines/Micros_BG/X_btn"]
+
+transform/pos = Vector2( 20, 30 )
+transform/scale = Vector2( 3.6344, 4.08113 )
+normal = null
+pressed = null
+bitmask = null
+shape = SubResource( 4 )
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Timer_enable_create" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="pressed" from="Main_Layer/Create_Routine/Nova_Rotina/button_new_routine" to="." method="_on_button_new_routine_pressed"]
+
+[connection signal="pressed" from="Main_Layer/Create_Routine/Return_btn/return_button" to="." method="_on_return_button_pressed"]
+
+[connection signal="pressed" from="Micro_Routines/Micros_BG/Comer/Comer_btn" to="." method="_on_Comer_btn_pressed"]
+
+[connection signal="pressed" from="Micro_Routines/Micros_BG/Dever/Dever_btn" to="." method="_on_Dever_btn_pressed"]
+
+[connection signal="pressed" from="Micro_Routines/Micros_BG/Escovar/Escovar_btn" to="." method="_on_Escovar_btn_pressed"]
+
+[connection signal="pressed" from="Micro_Routines/Micros_BG/Escola/Escola_btn" to="." method="_on_Escola_btn_pressed"]
+
+[connection signal="pressed" from="Micro_Routines/Micros_BG/Banho/Banho_btn" to="." method="_on_Banho_btn_pressed"]
+
+[connection signal="pressed" from="Micro_Routines/Micros_BG/Roupa/Roupa_btn" to="." method="_on_Roupa_btn_pressed"]
+
+[connection signal="pressed" from="Micro_Routines/Micros_BG/Create_Routine_button" to="." method="_on_Create_Routine_button_pressed"]
+
+[connection signal="pressed" from="Micro_Routines/Micros_BG/X_btn/X_button" to="." method="_on_X_button_pressed"]
+
+[connection signal="timeout" from="Timer_enable_create" to="." method="_on_Timer_enable_create_timeout"]
+
+

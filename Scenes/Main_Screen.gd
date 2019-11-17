@@ -45,22 +45,48 @@ func _on_Menu_Button_pressed():
 	get_node("Anim_Bar").play("Drop_Bar")
 
 func _on_Register_button_pressed():
+	hide_wrong_password()
+	hide_different_passwords()
 	enter_button.hide()
 	password_box.hide()
 	register_button.hide()
 	password_box_register.show()
-	print("register pressed")
-	pass # replace with function body
+
+func show_different_passwords():
+	get_node("Bar/Top_Menu/Balao_Vazio").show()
+	get_node("Bar/Top_Menu/Balao_Vazio/senha_nao_batem").show()
+
+func hide_different_passwords():
+	get_node("Bar/Top_Menu/Balao_Vazio").hide()
+	get_node("Bar/Top_Menu/Balao_Vazio/senha_nao_batem").hide()
+
+
+func show_wrong_password():
+	get_node("Bar/Top_Menu/Balao_Vazio").show()
+	get_node("Bar/Top_Menu/Balao_Vazio/senha_errada").show()
+
+func hide_wrong_password():
+	get_node("Bar/Top_Menu/Balao_Vazio").hide()
+	get_node("Bar/Top_Menu/Balao_Vazio/senha_errada").hide()
 
 func _on_Enter_Button_pressed():
 	var password_input = get_node("Bar/Top_Menu/Password_Box/current_password").get_text()
 	if password_input != password:
-		print("senha errada")
+		show_wrong_password()
 	else:
+		hide_wrong_password()
 		get_tree().change_scene("res://Scenes/Parents_Screen.tscn")
 
 func _on_Cancel_btn_pressed():
 	get_node("Anim_Bar").play("Up_Bar")
+	get_node("Bar/Top_Menu/Password_Box/current_password").clear()
+	hide_wrong_password()
+	hide_different_passwords()
+	enter_button.show()
+	password_box.show()
+	register_button.show()
+	password_box_register.hide()
+	clean_password_fields()
 
 func register_password():
 	var new_password = get_node("Bar/Top_Menu/Password_Box_Register/new_password").get_text()
@@ -72,7 +98,7 @@ func register_password():
 		password = new_password
 		FLAG_PWD = true
 	else:
-		print("Passwords diferentes")
+		show_different_passwords()
 		FLAG_PWD = false
 
 func clean_password_fields():
@@ -95,8 +121,10 @@ func _on_ok_button_pressed():
 		print("senhas diferentes")
 
 func _on_cancel_button_pressed():
+	hide_different_passwords()
 	enter_button.show()
 	password_box.show()
 	register_button.show()
 	password_box_register.hide()
+	get_node("Bar/Top_Menu/Password_Box/current_password").clear()
 	clean_password_fields()
